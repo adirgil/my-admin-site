@@ -9,7 +9,14 @@ const UsersTB = (props) => {
     
     return (
         <table>
-            <tbody>
+            <thead className="thead">
+                <tr>
+                    <td>ID</td>
+                    <td>User Name</td>
+                    <td>Password</td>
+                </tr>
+            </thead>
+            <tbody>          
                 {tableRows}
             </tbody>
         </table>

@@ -1,0 +1,38 @@
+.main {
+    margin: auto;
+    width: 40%;
+}
+
+thead{
+    font-weight: bold;
+    font-size: 20px;
+    color: chocolate;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    background-color: white;
+}
+tbody {
+   color: black;
+
+} 
+
+td {
+    border: 1px solid black;
+}
+
+
+.showBtn {
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    background: #fff;
+    font-weight: lighter;
+    color: #000;
+    border: 0px;
+    border-radius: 5px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-bottom: 3%;
+}

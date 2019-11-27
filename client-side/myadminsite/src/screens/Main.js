@@ -1,5 +1,6 @@
 import React , { useState } from 'react';
 import UsersTB from '../components/UsersTB';
+import '../css/Main.css'
 //import { useHistory } from "react-router-dom";
 const Main = (props) => {
 
@@ -19,9 +20,9 @@ const Main = (props) => {
     const [users, setUsers] = useState("")
 
     return (
-        <div>
+        <div className="main">
             <h1>Main</h1>
-            <button onClick={heandleUsers}>Show Users</button>
+            <button onClick={heandleUsers} className="showBtn">Show Users</button>
              {table}
             
         </div>

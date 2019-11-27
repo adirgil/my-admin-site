@@ -1,11 +1,10 @@
-
 const express = require('express');
 const mysql = require('mysql');
 //const path = require('path');
 const cors = require('cors');
 const app = express();
 const port = 5000;
-app.use(cors({origin:'*'}));
+app.use(cors({ origin: '*' }));
 app.use(express.json())
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -15,7 +14,7 @@ const connection = mysql.createConnection({
 });
 
 
-connection.connect(function (err) {
+connection.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
 });
@@ -26,10 +25,10 @@ app.post('/login', (req, res) => {
     connection.query(sqlQuery, (error, results) => {
         if (error) throw error;
         console.log('results is: ', results);
-        if (results.length > 0) {  
-            res.json({result :"Success"});        
+        if (results.length > 0) {
+            res.json({ result: "Success" });
         } else {
-            res.json({result:"Error"});
+            res.json({ result: "Error" });
         }
     })
 })
@@ -53,13 +52,13 @@ app.get('/users/:ID', (req, res) => {
 //INSERT USER
 app.post('/register', (req, res) => {
     let sqlQuery = `INSERT INTO users(userName, password) VALUES ('${req.body.username}', '${req.body.password}')`;
-    connection.query(sqlQuery,(error, results) => {
+    connection.query(sqlQuery, (error, results) => {
         console.log(results);
-        if(results.affectedRows === 0){
-            res.json({result :"Error"});
-        }else{
-            res.json({result :"Success"})
-        }   
+        if (results.affectedRows === 0) {
+            res.json({ result: "Error" });
+        } else {
+            res.json({ result: "Success" })
+        }
     })
 })
 
@@ -67,4 +66,4 @@ app.post('/register', (req, res) => {
 
 
 
-app.listen(port, () => console.log('server is running'));//listen to my port and them console.log
+app.listen(port, () => console.log('server is running')); //listen to my port and them console.log

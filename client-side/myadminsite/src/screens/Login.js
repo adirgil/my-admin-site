@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
+import '../css/Login.css'
 const Login = (props) => {
 
     const [answer, setAnswer] = useState("")
@@ -17,7 +18,7 @@ const Login = (props) => {
                 if (res.result === 'Success') {
                     history.push('/Main')
                 } else {
-                    setAnswer(res.result);
+                    setAnswer("Wrong UserName or Password");
                 }
 
             })
@@ -26,23 +27,20 @@ const Login = (props) => {
     const [password, setPassword] = useState("")
 
     return (
-        <div>
-            <h1>Login!</h1>
+        <div className="login">
+            <h1>Login</h1>
             <form onSubmit={heandleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+                <input onChange={(e) => setUserName(e.target.value)} type='text' placeholder='UserName' required />
+
+                <input onChange={(e) => setPassword(e.target.value)} type='text' placeholder='Password' required />
+
                 <label>
-                    User Name:
-                    <input onChange={(e) => setUserName(e.target.value)} type='text' placeholder='UserName' />
-                </label>
-                <label>
-                    Password:
-                    <input onChange={(e) => setPassword(e.target.value)} type='text' placeholder='Password' />
-                </label>
-                <label style={{ color: "red" }}>
                     {answer}
                 </label>
-                <button>Login</button>
+
+                <button className="loginBtn">Login</button>
             </form>
-            <button onClick={() => history.push('/register')}>Register</button>
+            <button onClick={() => history.push('/register')} className="registerBtn">Register</button>
         </div>
 
     )

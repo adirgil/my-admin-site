@@ -1,8 +1,9 @@
 import React from 'react';
-import './App.css';
+//import './css/App.css';
 import Login from './screens/Login'
 import Register from './screens/Register'
 import Main from './screens/Main'
+import './css/App.css'
 import {BrowserRouter as Router,
   Switch,
   Route

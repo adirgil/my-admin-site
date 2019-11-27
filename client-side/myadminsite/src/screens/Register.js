@@ -1,5 +1,6 @@
-import React , { useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
+import '../css/Login.css'
 const Register = (props) => {
     const [answer, setAnswer] = useState("")
 
@@ -7,47 +8,42 @@ const Register = (props) => {
 
     const heandleSubmit = (e) => {
         e.preventDefault();
-        if(Cpassword!==password){
+        if (Cpassword !== password) {
             setAnswer("passwords do not match");
             return
         }
         fetch('http://localhost:5000/register', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json' },
-            body:JSON.stringify({ username: userName, password })
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: userName, password })
         })
-        .then(res => res.json())
-        .then(res => {
-            if(res.result ==='Success'){
-                history.push('/')
-            }
-            setAnswer(res.result);
-        })
+            .then(res => res.json())
+            .then(res => {
+                if (res.result === 'Success') {
+                    history.push('/')
+                }
+                setAnswer(res.result);
+            })
     }
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
     const [Cpassword, setCPassword] = useState("")
 
     return (
-        <div>
+        <div className="login">
             <h1>Register</h1>
             <form onSubmit={heandleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+
+                <input onChange={(e) => setUserName(e.target.value)} type='text' placeholder='UserName' required />
+
+                <input onChange={(e) => setPassword(e.target.value)} type='text' placeholder='Password' required />
+
+                    <input onChange={(e) => setCPassword(e.target.value)} type='text' placeholder='Confirm Password' required />
+
                 <label>
-                    User Name:
-                    <input onChange={(e) => setUserName(e.target.value)} type='text' required/>
-                </label>
-                <label>
-                    Password:
-                    <input onChange={(e) => setPassword(e.target.value)} type='text' required/>
-                </label>
-                <label>
-                    Confirm Password:
-                    <input onChange={(e) => setCPassword(e.target.value)} type='text' required/>
-                </label>
-                <label style={{ color: "red" }}>
                     {answer}
                 </label>
-                <button>Register!!</button>
+                <button className="loginBtn">Register</button>
             </form>
         </div>
 

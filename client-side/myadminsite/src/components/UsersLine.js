@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/UsersLine.css';
 
 const UsersLine = (props) => {
     return (
