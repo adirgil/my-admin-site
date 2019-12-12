@@ -6,6 +6,7 @@ const app = express();
 const port = 5000;
 app.use(cors({ origin: '*' }));
 app.use(express.json())
+
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -62,6 +63,19 @@ app.post('/register', (req, res) => {
     })
 })
 
+//DELETE USER
+app.post('/delete/:ID', (req, res) => {
+    connection.query(`DELETE FROM users WHERE ID =${parseInt(req.params.ID)}`, (error, results) => {
+        if (results.affectedRows === 0) {
+            res.json({ result: "Error" });
+        } else {
+            res.json({ result: "Success" })
+        }
+    })
+})
+
+
+app.get('/hey', (req, res) => console.log('ho!'))
 
 
 

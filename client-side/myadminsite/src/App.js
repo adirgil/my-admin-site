@@ -3,26 +3,20 @@ import React from 'react';
 import Login from './screens/Login'
 import Register from './screens/Register'
 import Main from './screens/Main'
+import Main2 from './screens/Main2'
 import './css/App.css'
-import {BrowserRouter as Router,
-  Switch,
-  Route
- } from "react-router-dom";
+// import {BrowserRouter as Router,
+//   Switch,
+//   Route
+//  } from "react-router-dom";
+ import { Router } from "@reach/router"
 
 function App() {
   return (
     <Router>
-      <Switch>
-          <Route exact path="/">
-            <Login />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/main">
-            <Main />
-          </Route>
-        </Switch>
+          <Login exact path="/"/>
+          <Register path="/register"/>
+          <Main2 path="/main2"/>
     </Router>
   );
 }

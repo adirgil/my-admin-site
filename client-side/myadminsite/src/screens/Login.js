@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { useHistory } from "react-router-dom";
+//import { useHistory } from "react-router-dom";
+import { navigate } from "@reach/router"
 import '../css/Login.css'
+
 const Login = (props) => {
 
     const [answer, setAnswer] = useState("")
 
-    const history = useHistory();
+    //const history = useHistory();
+
     const heandleSubmit = (e) => {
         e.preventDefault();
         fetch('http://localhost:5000/login', {
@@ -16,7 +19,8 @@ const Login = (props) => {
             .then(res => res.json())
             .then(res => {
                 if (res.result === 'Success') {
-                    history.push('/Main')
+                    //history.push('/Main2')
+                    navigate('/main2')
                 } else {
                     setAnswer("Wrong UserName or Password");
                 }
@@ -40,7 +44,7 @@ const Login = (props) => {
 
                 <button className="loginBtn">Login</button>
             </form>
-            <button onClick={() => history.push('/register')} className="registerBtn">Register</button>
+            <button onClick={() => navigate('/register')} className="registerBtn">Register</button>
         </div>
 
     )

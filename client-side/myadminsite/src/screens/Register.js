@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import '../css/Login.css'
+import { navigate } from "@reach/router"
 const Register = (props) => {
     const [answer, setAnswer] = useState("")
 
-    const history = useHistory();
+    //const history = useHistory();
 
     const heandleSubmit = (e) => {
         e.preventDefault();
@@ -20,7 +21,7 @@ const Register = (props) => {
             .then(res => res.json())
             .then(res => {
                 if (res.result === 'Success') {
-                    history.push('/')
+                   navigate('/')
                 }
                 setAnswer(res.result);
             })

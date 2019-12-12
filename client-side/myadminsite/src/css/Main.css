@@ -1,7 +1,50 @@
 .main {
     margin: auto;
-    width: 40%;
+    width: 100%;
+   
+
 }
+
+.contant {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.detailsSide {
+    background-color: red;
+    width: 70%;
+}
+
+.manuSide {
+    background-color: blue;
+    width: 30%;
+    
+}
+
+li {
+    border: 2px solid black;
+    margin-bottom: 2%;
+    width: 60%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 thead{
     font-weight: bold;
@@ -36,3 +79,5 @@ td {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     margin-bottom: 3%;
 }
+
+
